@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* Web Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* Reset */
+body, div, h1, h2, p, span {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+}
+.blind {
+    overflow: hidden; 
+    position: absolute; 
+    clip-path: inset(50%); 
+    width: 1px; 
+    height: 1px; 
+    margin: -1px;
+}
+
+/* Custom */
+body {
+    height: 100vh;
+    background: url("bg_sunsetbeach.jpeg") no-repeat center;
+    background-size: cover;
+    color: white;
+}
+.info, .saying {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+}
+.info {
+    height: 80vh;
+}
+.info_time {
+    font-size: 80px;
+    font-weight: 900;
+}
+.info_greeting {
+    font-size: 40px;
+}
+.info_todo {
+    font-size: 25px;
+}
+.saying {
+    height: 20vh;
+}
+.saying_auth {
+    font-size: 12px;
+}
+.saying_cont {
+    font-size: 20px;
+    font-style: italic;
+}
