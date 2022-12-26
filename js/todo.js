@@ -14,12 +14,17 @@ function saveToDos(){
 function deleteToDo(e){
   const li = e.target.parentElement;
   li.remove();
+  // console.log(li.id);
+  // console.log(typeof li.id); //number
+  toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
-function paintToDo(newToDo){
+function paintToDo(newToDoObj){
   const listItem = document.createElement("li");
+  listItem.id = newToDoObj.id;
   const span = document.createElement("span");
-  span.innerText = newToDo;
+  span.innerText = newToDoObj.text;
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
@@ -30,8 +35,12 @@ function handleToDoSubmit(e){
   e.preventDefault();
   const newToDo = toDoInput.value;
   toDoInput.value = "";
-  toDos.push(newToDo);
-  paintToDo(newToDo);
+  const newToDoObj = {
+    text: newToDo,
+    id: Date.now(),
+  };
+  toDos.push(newToDoObj);
+  paintToDo(newToDoObj);
   saveToDos(); // 등록된 todos는 나중에도 사용할 수 있도록 저장
 }
 
