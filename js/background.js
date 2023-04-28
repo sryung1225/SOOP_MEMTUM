@@ -1,4 +1,11 @@
-const images = ["bg1.png", "bg2.png", "bg3.png"];
+const images = [
+  "bg1.png",
+  "bg2.png",
+  "bg3.png",
+  "bg4.jpg",
+  "bg5.jpg",
+  "bg6.png",
+];
 const chosenImage = () => {
   return images[Math.floor(Math.random() * images.length)];
 };
