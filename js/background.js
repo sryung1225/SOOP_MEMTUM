@@ -1,8 +1,10 @@
-const images = ["0.jpeg", "1.jpeg", "2.jpeg"];
-const chosenImage = images[Math.floor(Math.random() * images.length)];
-//console.log(chosenImage);
+const images = ["bg1.png", "bg2.png", "bg3.png"];
+const chosenImage = () => {
+  return images[Math.floor(Math.random() * images.length)];
+};
+const paintBackground = (chosenImage) => {
+  const bgImage = `url("img/${chosenImage()}")`;
+  document.body.style.backgroundImage = bgImage;
+};
 
-const bgImage = document.createElement("img");
-bgImage.src = `img/${chosenImage}`;
-//console.log(bgImage);
-document.body.appendChild(bgImage);
+paintBackground(chosenImage);
