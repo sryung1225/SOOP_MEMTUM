@@ -1,5 +1,89 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: "MaplestoryOTFBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* -------------------------------------------------------------------------- */
+/* reset                                                                      */
+/* -------------------------------------------------------------------------- */
+body,
+h1,
+h2,
+form,
+input,
+ul,
+li,
+div,
+span {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/* variable                                                                   */
+/* -------------------------------------------------------------------------- */
+:root {
+  --default: #4a5a60;
+  --beige: #fefae4;
+}
+
+/* -------------------------------------------------------------------------- */
+/* common                                                                     */
+/* -------------------------------------------------------------------------- */
 .hidden {
   display: none;
+}
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--default);
+  font-family: MaplestoryOTFBold;
+}
+
+/* -------------------------------------------------------------------------- */
+/* custom                                                                     */
+/* -------------------------------------------------------------------------- */
+.login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  height: auto;
+  padding: 50px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 50px;
+  box-shadow: 7px 7px 0px 3px var(--default);
+}
+.login-form input,
+.login-form button {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  padding: 10px 30px;
+  font-size: 30px;
+  line-height: 30px;
+  border: 2px solid var(--default);
+  border-radius: 25px;
+  font-family: MaplestoryOTFBold;
+}
+.login-form input {
+  color: var(--default);
+  text-align: center;
+}
+.login-form button {
+  background-color: var(--default);
+  color: #fff;
 }
