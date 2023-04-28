@@ -29,8 +29,9 @@ span {
 /* variable                                                                   */
 /* -------------------------------------------------------------------------- */
 :root {
-  --default: #4a5a60;
+  --default: #877454;
   --beige: #fefae4;
+  --green: #4bc846;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -43,6 +44,8 @@ body {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  background-position: center center;
+  background-size: cover;
   color: var(--default);
   font-family: MaplestoryOTFBold;
 }
@@ -86,4 +89,63 @@ body {
 .login-form button {
   background-color: var(--default);
   color: #fff;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.todo {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 700px;
+  margin: 50px;
+  background: url("../img/list.png") center center no-repeat;
+  background-size: cover;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+}
+.greeting {
+  position: relative;
+  display: inline-block;
+  margin: 100px auto 0;
+  padding: 20px 70px;
+  background-color: var(--beige);
+  border-radius: 30px;
+  font-size: 50px;
+  text-align: center;
+  box-shadow: 7px 7px 0px 3px var(--default);
+}
+.greeting .name {
+  color: var(--green);
+}
+.greeting::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: -120px;
+  display: inline-block;
+  width: 200px;
+  height: 135px;
+  background: url("../img/neogul.png") center center;
+  background-size: cover;
+}
+#date {
+  display: inline-block;
+  margin: 50px auto 0;
+  font-size: 28px;
+}
+#clock {
+  display: inline-block;
+  margin: 0 auto 50px;
+  color: var(--beige);
+  text-shadow: 7px 7px var(--default);
+  font-size: 150px;
 }
