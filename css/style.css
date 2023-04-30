@@ -14,8 +14,10 @@
 body,
 h1,
 h2,
+p,
 form,
 input,
+button,
 ul,
 li,
 div,
@@ -30,15 +32,31 @@ span {
 /* -------------------------------------------------------------------------- */
 :root {
   --default: #877454;
+  --default-rgb: 135, 116, 84;
   --beige: #fefae4;
+  --beige-rgb: 254, 250, 228;
+  --vanila: #f4f0d3;
   --green: #4bc846;
+  --orange: #fdb500;
+  --mint: #2cc9aa;
+  --gray: #d8d7c6;
 }
 
 /* -------------------------------------------------------------------------- */
 /* common                                                                     */
 /* -------------------------------------------------------------------------- */
 .hidden {
-  display: none;
+  display: none !important;
+}
+.a11y {
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  position: absolute !important;
 }
 body {
   position: relative;
@@ -49,10 +67,20 @@ body {
   color: var(--default);
   font-family: MaplestoryOTFBold;
 }
+input::placeholder {
+  color: rgba(var(--default-rgb), 0.5);
+}
+input:focus {
+  outline: 2px solid var(--default);
+}
+button {
+  cursor: pointer;
+}
 
 /* -------------------------------------------------------------------------- */
 /* custom                                                                     */
 /* -------------------------------------------------------------------------- */
+/* login-form */
 .login-form {
   position: absolute;
   top: 50%;
@@ -66,58 +94,171 @@ body {
   height: auto;
   padding: 50px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--vanila);
   border-radius: 50px;
   box-shadow: 7px 7px 0px 3px var(--default);
 }
+.login-form::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  width: 200px;
+  height: 400px;
+  display: inline-block;
+  background: url("../img/yeoul.png") center center no-repeat;
+  background-size: cover;
+}
+.login-form label {
+  width: 80%;
+  font-size: 30px;
+  text-align: center;
+}
 .login-form input,
 .login-form button {
-  width: 100%;
-  height: 50px;
   margin-top: 10px;
-  padding: 10px 30px;
   font-size: 30px;
   line-height: 30px;
-  border: 2px solid var(--default);
+  border: none;
   border-radius: 25px;
   font-family: MaplestoryOTFBold;
 }
 .login-form input {
-  color: var(--default);
+  width: 80%;
+  height: 60px;
+  padding: 15px 30px;
+  background-color: var(--beige);
+  color: var(--mint);
   text-align: center;
 }
+.login-form .underline {
+  width: 60%;
+  margin: -10px 0 10px;
+  border-bottom: 4px dashed #d8d7c6;
+}
 .login-form button {
-  background-color: var(--default);
-  color: #fff;
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: var(--mint);
+  border: 2px solid var(--mint);
+  color: var(--beige);
 }
-
+.login-form button:hover {
+  transition: 0.5s;
+  background-color: var(--beige);
+  color: var(--mint);
+}
+/* dashboard */
 .dashboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 100px), calc(-50% - 100px));
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  gap: 30px;
+  width: calc(100% - 200px);
+  height: calc(100% - 200px);
+  max-width: 1400px;
+  margin: 100px;
+  padding: 50px;
+  box-sizing: border-box;
+  background-color: rgba(var(--beige-rgb), 0.5);
+  border-radius: 100px;
 }
+.dashboard::before,
+.dashboard::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.dashboard::before {
+  bottom: 20px;
+  left: 24px;
+  width: 193px;
+  height: 250px;
+  background-image: url("../img/tk.png");
+}
+.dashboard::after {
+  bottom: -16px;
+  right: -56px;
+  width: 172px;
+  height: 305px;
+  background-image: url("../img/avatar.png");
+}
+/* dashboard - todo */
 .todo {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 700px;
-  margin: 50px;
+  height: 100%;
+  padding: 50px;
   background: url("../img/list.png") center center no-repeat;
   background-size: cover;
 }
+.todo label {
+  display: block;
+  color: var(--vanila);
+  font-size: 30px;
+  text-align: center;
+}
+.todo input {
+  position: relative;
+  width: 100%;
+  padding: 15px 30px;
+  background-color: var(--beige);
+  color: var(--default);
+  text-align: center;
+  margin: 10px 0;
+  font-size: 26px;
+  line-height: 26px;
+  border: none;
+  border-radius: 25px;
+  font-family: MaplestoryOTFBold;
+}
+#todo-list {
+  list-style: none;
+}
+.todo-notice {
+  font-size: 14px;
+  text-align: center;
+}
+.todo-item {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px 10px;
+  background-color: var(--beige);
+  border-radius: 25px;
+  font-size: 20px;
+}
+.todo-item-btn {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0 20px 0 10px;
+  background: url("../img/leap.png") center center no-repeat;
+  background-size: cover;
+  border: 0;
+}
+/* dashboard - profile */
 .profile {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 800px;
+  justify-content: space-around;
+  gap: 50px;
 }
 .greeting {
   position: relative;
   display: inline-block;
-  margin: 100px auto 0;
+  height: 100px;
+  margin: 0 auto;
   padding: 20px 70px;
-  background-color: var(--beige);
+  background-color: var(--vanila);
   border-radius: 30px;
   font-size: 50px;
   text-align: center;
@@ -137,15 +278,27 @@ body {
   background: url("../img/neogul.png") center center;
   background-size: cover;
 }
-#date {
-  display: inline-block;
-  margin: 50px auto 0;
-  font-size: 28px;
+.calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 450px;
+  background: url("../img/account.png") center center no-repeat;
+  background-size: cover;
 }
-#clock {
-  display: inline-block;
-  margin: 0 auto 50px;
-  color: var(--beige);
+.calendar #date {
+  font-size: 28px;
+  text-align: center;
+}
+.calendar #weather {
+  padding-top: 6px;
+  color: var(--default);
+  font-size: 16px;
+  text-align: center;
+}
+.calendar #clock {
+  color: var(--orange);
   text-shadow: 7px 7px var(--default);
   font-size: 150px;
+  text-align: center;
 }

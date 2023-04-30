@@ -14,40 +14,38 @@
     <script defer src="js/weather.js"></script>
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
-    <title>MOMENTUM</title>
+    <title>SOOP_MENTUM</title>
   </head>
   <body>
+    <h1 class="a11y">숲멘텀</h1>
     <section class="loginboard">
       <form id="login-form" class="login-form">
-        <label for="userName" class="hidden">사용자 이름</label>
-        <input
-          id="userName"
-          required
-          maxlength="15"
-          type="text"
-          placeholder="이름을 입력해주세요"
-        />
+        <label for="userName">당신의 이름은 무엇인가요?</label>
+        <input id="userName" required maxlength="15" type="text" />
+        <div class="underline"></div>
         <button>로그인</button>
       </form>
     </section>
     <section class="dashboard hidden">
       <div class="todo">
         <form action="" id="todo-form">
-          <input type="text" placeholder="Write a To Do and Press Enter." />
+          <label for="userToDo">오늘 해야 할 일</label>
+          <input id="userToDo" type="text" placeholder="입력하세요" />
         </form>
-        <ul id="todo-list"></ul>
+        <p class="todo-notice">나뭇잎을 클릭하면 할 일이 사라집니다</p>
+        <ul id="todo-list">
+          <!-- <li class="todo-item"></li> -->
+        </ul>
       </div>
       <div class="profile">
-        <h1 class="greeting">어서와, <span class="name"></span>!</h1>
-        <h2 id="date">0000년 0월 0일 0요일</h2>
-        <h2 id="clock">00:00:00</h2>
-        <div id="quote">
-          <span></span>
-          <span></span>
-        </div>
-        <div id="weather">
-          <span></span>
-          <span></span>
+        <h2 class="greeting">어서와, <span class="name"></span>!</h2>
+        <div class="calendar">
+          <h2 id="date">0000년 0월 0일 0요일</h2>
+          <div id="weather">
+            <span></span>
+            <span></span>
+          </div>
+          <h2 id="clock">00:00:00</h2>
         </div>
       </div>
     </section>
